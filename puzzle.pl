@@ -167,3 +167,10 @@ auxiliar(Puzzle, [[X,Y]|RestoValidos], [P|RestoPuzzle]):-
     coordenada(Puzzle,0,Coordenada),
     pon(NP,Coordenada,Elemento,PF),
     auxiliar(Puzzle, RestoValidos, RestoPuzzle).
+
+
+for([],_,[]).
+for([Puzz1|ResPuzz],Closed,Open):-
+    member(Puzz1, Closed),
+    for(ResPuzz,Closed,Open).
+for([Puzz1|ResPuzz],Closed,[Puzz1|ResOpen]):-for(ResPuzz,Closed,ResOpen).
